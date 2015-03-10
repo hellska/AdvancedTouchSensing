@@ -35,9 +35,10 @@ float results[N];            //-Filtered result buffer
 float freq[N];            //-Filtered result buffer
 int sizeOfArray = N;
 
-const int ledPin = 9;      // the pin that the LED is attached to
-String input = "";
-  
+ 
+   
+   
+
 void setup()
 {
   
@@ -47,10 +48,8 @@ void setup()
   ICR1=110;
   OCR1A=55;
 
-  pinMode(11,OUTPUT);        //-Signal generator pin
+  pinMode(9,OUTPUT);        //-Signal generator pin
   pinMode(8,OUTPUT);        //-Sync (test) pin
-
-  pinMode(ledPin, OUTPUT);  // set led pin mode
 
   Serial.begin(115200);
 
@@ -60,22 +59,6 @@ void setup()
 
 void loop()
 {
-  
-  while (Serial.available() > 0)
-    {
-        input += (char) Serial.read(); // Read in one char at a time
-        delay(5); // Delay for 5 ms so the next char has time to be received
-    }
-  if (input == "on")
-    {
-        digitalWrite(ledPin, HIGH); // on
-    }
-    else if (input == "off")
-    {
-        digitalWrite(ledPin, LOW); // off
-    }
-    
-  
   unsigned int d;
 
   int counter = 0;
